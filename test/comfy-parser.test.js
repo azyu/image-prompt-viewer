@@ -250,3 +250,27 @@ test('parses prompt tags that include NaN in ComfyUI metadata', () => {
     assert.equal(result.promptData.positive.rendered, 'template prompt from random generator');
     assert.equal(result.attributes.seed, 1);
 });
+
+test('extracts model names from non-default loader nodes', () => {
+    const build = (loader) => ({
+        prompt: {
+            description: JSON.stringify({
+                3: {
+                    inputs: { seed: 1, model: ['4', 0], positive: ['6', 0] },
+                    class_type: 'KSampler'
+                },
+                4: loader,
+                6: { inputs: { text: 'positive prompt' }, class_type: 'CLIPTextEncode' }
+            })
+        }
+    });
+
+    assert.equal(
+        parseComfyTags(build({ inputs: { unet_name: 'flux1-dev.safetensors', weight_dtype: 'default' }, class_type: 'UNETLoader' })).attributes.model,
+        'flux1-dev.safetensors'
+    );
+    assert.equal(
+        parseComfyTags(build({ inputs: { ckpt_name: 'sdxl.safetensors' }, class_type: 'Efficient Loader' })).attributes.model,
+        'sdxl.safetensors'
+    );
+});

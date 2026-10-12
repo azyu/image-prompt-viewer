@@ -194,9 +194,9 @@
                     }
                 }
 
-                if (node.class_type === 'CheckpointLoaderSimple' || node.class_type === 'CheckpointLoader') {
-                    if (node.inputs.ckpt_name) model = node.inputs.ckpt_name;
-                }
+                // Any loader: CheckpointLoader*, Efficient Loader (ckpt_name), UNETLoader/GGUF (unet_name).
+                const modelName = node.inputs && (node.inputs.ckpt_name || node.inputs.unet_name);
+                if (typeof modelName === 'string' && modelName) model = modelName;
             });
         }
 
