@@ -16,7 +16,7 @@
 
   <body>
     <!-- Custom Title Bar -->
-    <div class="title-bar">
+    <div class="title-bar" data-tauri-drag-region>
       <div class="title-text">SD Prompt Viewer</div>
     </div>
 
@@ -166,22 +166,8 @@
       </div>
     </div>
 
-    <!-- Using ExifReader from node_modules might require require() in renderer if nodeIntegration=false? 
-         Plan: We will use a script tag relative path if strictly browser based, OR require() in renderer if allowed.
-         Since I disabled nodeIntegration, I should bundle it or use script tag. 
-         Wait, `npm install exifreader` puts it in node_modules. 
-         In a pure Electron without bundler (Webpack/Vite), requiring modules in Renderer needs nodeIntegration:true OR a preload script that exposes it.
-         
-         Simplest fix for "Personal" usage: Enable nodeIntegration in main.js? 
-         User agreed to proceed. I already wrote main.js with nodeIntegration: false.
-         I can assume I will implement the logic in `renderer.js` and might fail to `require('exifreader')` without a bundler.
-         
-         Correction: I'll include `node_modules/exifreader/dist/exif-reader.js` via script tag?
-         Or simpler: I will re-write main.js to allow nodeIntegration for this specific task to make it easy to `require` things.
-         OR: I can use the 'exifreader' file path directly if I can find where it is.
-         
-         Let's try to stick to "Rich Aesthetics" first. Logic comes in renderer.js.
-    -->
+    <script src="exif-reader.js"></script>
+    <script src="comfy-parser.js"></script>
     <script src="renderer.js"></script>
   </body>
 </html>

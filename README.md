@@ -17,7 +17,7 @@ A Stable Diffusion Prompt Reader designed for macOS and Windows with a dark-them
 
 ## Installation
 
-Ensure you have [Node.js](https://nodejs.org/) installed.
+Ensure you have [Node.js](https://nodejs.org/) and [Rust](https://www.rust-lang.org/tools/install) installed.
 
 ```bash
 # Clone the repository
@@ -48,15 +48,15 @@ npm run make
 
 This repository uses **GitHub Actions** to automatically build for:
 
-- **Windows** (`.exe`, `.zip`)
-- **macOS** (`.zip`)
-- **Linux** (`.deb`, `.rpm`, `.zip`)
+- **Windows** (`.exe`, `.msi`)
+- **macOS** (`.dmg`)
+- **Linux** (`.deb`, `.rpm`, `.AppImage`)
 
 Artifacts are generated on every push to `main` and can be downloaded from the "Actions" tab in GitHub.
 
 ## Technology Stack
 
-- **Electron**: Cross-platform desktop framework.
+- **Tauri**: Lightweight Rust-based cross-platform desktop framework.
 - **Vanilla JS**: Lightweight core logic.
 - **CSS3**: Modern flexbox/grid layouts and variables for styling.
 
@@ -71,7 +71,7 @@ ISC
 On macOS, locally built unsigned apps may be blocked by Gatekeeper. To fix this, remove the quarantine attribute:
 
 ```bash
-xattr -cr out/sd-prompt-viewer-darwin-arm64/SD\ Prompt\ Viewer.app
+xattr -cr src-tauri/target/release/bundle/macos/SD\ Prompt\ Viewer.app
 # OR
 xattr -cr /path/to/your/SD\ Prompt\ Viewer.app
 ```

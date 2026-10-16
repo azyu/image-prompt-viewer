@@ -107,10 +107,10 @@ function processFile(file) {
 
     // 2. Parse Metadata
     const bufferReader = new FileReader();
-    bufferReader.onload = async (e) => {
+    bufferReader.onload = (e) => {
         const arrayBuffer = e.target.result;
         try {
-            const tags = await window.electronAPI.parseMetadata(arrayBuffer);
+            const tags = ExifReader.load(arrayBuffer);
             displayMetadata(tags);
         } catch (error) {
             console.error("Metadata parsing failed:", error);
@@ -271,7 +271,7 @@ function resetUI() {
 }
 
 function handleComfyUI(tags) {
-    const result = window.electronAPI.parseComfyTags(tags);
+    const result = window.comfyParser.parseComfyTags(tags);
 
     rawDataArea.value = result.rawData;
     currentPromptData = result.promptData;

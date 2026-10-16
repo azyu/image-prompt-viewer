@@ -9,3 +9,12 @@ test('raw metadata panel is visible by default', () => {
     assert.match(indexHtml, /class="field-group full-raw"/);
     assert.doesNotMatch(indexHtml, /<div class="field-group full-raw hidden">/);
 });
+
+test('loads ExifReader and ComfyUI parser scripts directly and configures Tauri drag region', () => {
+    const indexHtml = fs.readFileSync(path.resolve(__dirname, '../src/index.html'), 'utf8');
+
+    assert.match(indexHtml, /data-tauri-drag-region/);
+    assert.match(indexHtml, /<script src="exif-reader\.js"><\/script>/);
+    assert.match(indexHtml, /<script src="comfy-parser\.js"><\/script>/);
+    assert.match(indexHtml, /<script src="renderer\.js"><\/script>/);
+});

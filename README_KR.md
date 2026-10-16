@@ -17,7 +17,7 @@ macOS와 Windows를 위해 디자인된 다크 테마의 Stable Diffusion 프롬
 
 ## 설치 방법 (Installation)
 
-[Node.js](https://nodejs.org/)가 설치되어 있어야 합니다.
+[Node.js](https://nodejs.org/)와 [Rust](https://www.rust-lang.org/tools/install)가 설치되어 있어야 합니다.
 
 ```bash
 # 저장소 복제
@@ -48,15 +48,15 @@ npm run make
 
 이 저장소는 **GitHub Actions**를 사용하여 다음 환경에 대한 자동 빌드를 지원합니다:
 
-- **Windows** (`.exe`, `.zip`)
-- **macOS** (`.zip`)
-- **Linux** (`.deb`, `.rpm`, `.zip`)
+- **Windows** (`.exe`, `.msi`)
+- **macOS** (`.dmg`)
+- **Linux** (`.deb`, `.rpm`, `.AppImage`)
 
 `main` 브랜치에 푸시가 발생할 때마다 아티팩트가 생성되며, GitHub의 "Actions" 탭에서 다운로드할 수 있습니다.
 
 ## 기술 스택 (Technology Stack)
 
-- **Electron**: 크로스 플랫폼 데스크탑 프레임워크
+- **Tauri**: 가벼운 Rust 기반 크로스 플랫폼 데스크탑 프레임워크
 - **Vanilla JS**: 가벼운 코어 로직
 - **CSS3**: Modern Flexbox/Grid 레이아웃 및 CSS 변수 활용
 
@@ -71,7 +71,7 @@ ISC
 macOS에서 로컬로 빌드된 서명되지 않은 앱은 Gatekeeper에 의해 차단될 수 있습니다. 다음 명령어로 격리 속성을 제거하여 해결할 수 있습니다:
 
 ```bash
-xattr -cr out/sd-prompt-viewer-darwin-arm64/SD\ Prompt\ Viewer.app
+xattr -cr src-tauri/target/release/bundle/macos/SD\ Prompt\ Viewer.app
 # 또는
 xattr -cr /path/to/your/SD\ Prompt\ Viewer.app
 ```

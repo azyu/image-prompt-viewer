@@ -1,0 +1,13 @@
+[package]
+name = "sd-prompt-viewer"
+version = "1.0.1"
+description = "A refined SD Prompt Reader"
+authors = ["Antigravity"]
+license = "ISC"
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
