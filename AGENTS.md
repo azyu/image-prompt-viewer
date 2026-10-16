@@ -14,7 +14,7 @@ The project uses a lightweight Tauri v2 backend with a pure Vanilla JS frontend.
 
 ### 1. Tauri Backend (`src-tauri/`)
 *   **Entry Point (`src-tauri/src/main.rs`)**: Initializes the native WebView window.
-*   **Window Config (`src-tauri/tauri.conf.json`)**: Creates a 1200x800 window (`minWidth: 900`, `minHeight: 600`) with a custom dark-themed overlay title bar (`titleBarStyle: "Overlay"`, `hiddenTitle: true`) and standard HTML5 drag-and-drop enabled (`dragDropEnabled: false`).
+*   **Window Config (`src-tauri/tauri.conf.json`)**: Creates a 1200x800 window (`minWidth: 900`, `minHeight: 600`) with a custom dark-themed overlay title bar on macOS (`titleBarStyle: "Overlay"`, `hiddenTitle: true`; hidden on Windows/Linux where native title bars are used) and standard HTML5 drag-and-drop enabled (`dragDropEnabled: false`).
 *   **Capabilities (`src-tauri/capabilities/default.json`)**: Grants `core:default` and `core:window:allow-start-dragging` for `.title-bar[data-tauri-drag-region]`.
 
 ### 2. Frontend (`src/`)

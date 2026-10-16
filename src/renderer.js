@@ -22,6 +22,10 @@ let currentPromptData = {
     negative: { rendered: '', source: '' }
 };
 
+if (!/Mac/i.test(navigator.platform || navigator.userAgent)) {
+    document.body.classList.add('native-titlebar');
+}
+
 // --- Event Listeners ---
 
 // Drag & Drop
