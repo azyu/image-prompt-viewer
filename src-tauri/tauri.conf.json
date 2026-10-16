@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "SD Prompt Viewer",
-  "version": "1.0.1",
-  "identifier": "com.azyu.sd-prompt-viewer",
+  "productName": "Image Prompt Viewer",
+  "version": "2.0.0",
+  "identifier": "com.azyu.image-prompt-viewer",
   "build": {
     "beforeDevCommand": "npm run prepare-assets",
     "beforeBuildCommand": "npm run prepare-assets",
@@ -11,7 +11,7 @@
   "app": {
     "windows": [
       {
-        "title": "SD Prompt Viewer",
+        "title": "Image Prompt Viewer",
         "width": 1200,
         "height": 800,
         "minWidth": 900,

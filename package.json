@@ -1,8 +1,8 @@
 {
-  "name": "sd-prompt-viewer",
-  "productName": "SD Prompt Viewer",
-  "version": "1.0.1",
-  "description": "A refined SD Prompt Reader",
+  "name": "image-prompt-viewer",
+  "productName": "Image Prompt Viewer",
+  "version": "2.0.0",
+  "description": "A refined Image Prompt Reader",
   "scripts": {
     "prepare-assets": "node -e \"fs.copyFileSync('node_modules/exifreader/dist/exif-reader.js', 'src/exif-reader.js')\"",
     "start": "tauri dev",

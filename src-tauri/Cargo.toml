@@ -1,7 +1,7 @@
 [package]
-name = "sd-prompt-viewer"
-version = "1.0.1"
-description = "A refined SD Prompt Reader"
+name = "image-prompt-viewer"
+version = "2.0.0"
+description = "A refined Image Prompt Reader"
 authors = ["Antigravity"]
 license = "ISC"
 edition = "2021"
