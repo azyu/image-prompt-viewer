@@ -1,6 +1,9 @@
 node_modules
 out
 dist
+src-tauri/target
+src-tauri/gen/schemas
+src/exif-reader.js
 .DS_Store
 Thumbs.db
 .vscode

@@ -17,6 +17,7 @@
   /* Slate 600 */
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+  --title-bar-height: 40px;
 }
 
 * {
@@ -37,9 +38,13 @@ html {
   /* No window scroll */
 }
 
+body.native-titlebar {
+  --title-bar-height: 0px;
+}
+
 /* Custom Title Bar */
 .title-bar {
-  height: 40px;
+  height: var(--title-bar-height);
   background-color: var(--bg-app);
   display: flex;
   align-items: center;
@@ -50,16 +55,21 @@ html {
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+body.native-titlebar .title-bar {
+  display: none;
+}
+
 .title-text {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-secondary);
+  pointer-events: none;
 }
 
 /* App Container */
 .app-container {
   display: flex;
-  height: calc(100vh - 40px);
+  height: calc(100vh - var(--title-bar-height));
   /* Subtract title bar height */
   padding-top: 0;
 }

@@ -1,6 +1,6 @@
-# SD Prompt Viewer
+# Image Prompt Viewer
 
-A Stable Diffusion Prompt Reader designed for macOS and Windows with a dark-themed UI.
+An AI Image Prompt & Metadata Reader (ComfyUI, Automatic1111) designed for macOS, Windows, and Linux with a dark-themed UI.
 
 ![screenshot](https://github.com/user-attachments/assets/e627c259-6ea9-4eeb-a1ab-9d0330171fbe)
 
@@ -8,7 +8,7 @@ A Stable Diffusion Prompt Reader designed for macOS and Windows with a dark-them
 
 - **Drag & Drop**: Easily load images by dragging them into the app.
 - **Broad Format Support**: Reads metadata from **PNG**, **JPEG**, and **WebP** files.
-- **Workflow Support**: Native compatibility for **Automatic1111** and **ComfyUI** generation data.
+- **Workflow Support**: Native compatibility for **ComfyUI** and **Automatic1111** generation data.
 - **Smart View Modes**:
   - **Rendered**: View the final prompt with wildcards resolved.
   - **Source**: View the original dynamic template.
@@ -17,14 +17,14 @@ A Stable Diffusion Prompt Reader designed for macOS and Windows with a dark-them
 
 ## Installation
 
-Ensure you have [Node.js](https://nodejs.org/) installed.
+Ensure you have [Node.js](https://nodejs.org/) and [Rust](https://www.rust-lang.org/tools/install) installed.
 
 ```bash
 # Clone the repository
-git clone https://github.com/azyu/sd-prompt-viewer.git
+git clone https://github.com/azyu/image-prompt-viewer.git
 
 # Go into the app directory
-cd sd-prompt-viewer
+cd image-prompt-viewer
 
 # Install dependencies
 npm install
@@ -48,15 +48,15 @@ npm run make
 
 This repository uses **GitHub Actions** to automatically build for:
 
-- **Windows** (`.exe`, `.zip`)
-- **macOS** (`.zip`)
-- **Linux** (`.deb`, `.rpm`, `.zip`)
+- **Windows** (`.exe`, `.msi`)
+- **macOS** (`.dmg`)
+- **Linux** (`.deb`, `.rpm`, `.AppImage`)
 
 Artifacts are generated on every push to `main` and can be downloaded from the "Actions" tab in GitHub.
 
 ## Technology Stack
 
-- **Electron**: Cross-platform desktop framework.
+- **Tauri**: Lightweight Rust-based cross-platform desktop framework.
 - **Vanilla JS**: Lightweight core logic.
 - **CSS3**: Modern flexbox/grid layouts and variables for styling.
 
@@ -71,9 +71,9 @@ ISC
 On macOS, locally built unsigned apps may be blocked by Gatekeeper. To fix this, remove the quarantine attribute:
 
 ```bash
-xattr -cr out/sd-prompt-viewer-darwin-arm64/SD\ Prompt\ Viewer.app
+xattr -cr src-tauri/target/release/bundle/macos/Image\ Prompt\ Viewer.app
 # OR
-xattr -cr /path/to/your/SD\ Prompt\ Viewer.app
+xattr -cr /path/to/your/Image\ Prompt\ Viewer.app
 ```
 
 ## Disclaimer

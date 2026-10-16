@@ -1,6 +1,6 @@
-# SD Prompt Viewer (SD 프롬프트 뷰어)
+# Image Prompt Viewer (이미지 프롬프트 뷰어)
 
-macOS와 Windows를 위해 디자인된 다크 테마의 Stable Diffusion 프롬프트 리더입니다.
+macOS, Windows, Linux를 위해 디자인된 다크 테마의 AI 이미지 프롬프트 및 메타데이터 리더(ComfyUI, Automatic1111 지원)입니다.
 
 ![Screenshot](https://via.placeholder.com/800x600?text=Prompt+Viewer+Screenshot)
 
@@ -8,7 +8,7 @@ macOS와 Windows를 위해 디자인된 다크 테마의 Stable Diffusion 프롬
 
 - **드래그 앤 드롭 (Drag & Drop)**: 이미지를 앱으로 끌어놓아 간편하게 로드할 수 있습니다.
 - **다양한 포맷 지원**: **PNG**, **JPEG**, **WebP** 파일에 포함된 메타데이터를 읽을 수 있습니다.
-- **워크플로우 호환**: **Automatic1111** 및 **ComfyUI**로 생성된 이미지 데이터를 기본적으로 지원합니다.
+- **워크플로우 호환**: **ComfyUI** 및 **Automatic1111**로 생성된 이미지 데이터를 기본적으로 지원합니다.
 - **스마트 뷰 모드 (Smart View Modes)**:
   - **Rendered (렌더링됨)**: 와일드카드 등이 처리된 최종 프롬프트를 확인합니다.
   - **Source (원본)**: 동적 태그/템플릿이 포함된 원본 입력값을 확인합니다.
@@ -17,14 +17,14 @@ macOS와 Windows를 위해 디자인된 다크 테마의 Stable Diffusion 프롬
 
 ## 설치 방법 (Installation)
 
-[Node.js](https://nodejs.org/)가 설치되어 있어야 합니다.
+[Node.js](https://nodejs.org/)와 [Rust](https://www.rust-lang.org/tools/install)가 설치되어 있어야 합니다.
 
 ```bash
 # 저장소 복제
-git clone https://github.com/azyu/sd-prompt-viewer.git
+git clone https://github.com/azyu/image-prompt-viewer.git
 
 # 디렉토리 이동
-cd sd-prompt-viewer
+cd image-prompt-viewer
 
 # 의존성 설치
 npm install
@@ -48,15 +48,15 @@ npm run make
 
 이 저장소는 **GitHub Actions**를 사용하여 다음 환경에 대한 자동 빌드를 지원합니다:
 
-- **Windows** (`.exe`, `.zip`)
-- **macOS** (`.zip`)
-- **Linux** (`.deb`, `.rpm`, `.zip`)
+- **Windows** (`.exe`, `.msi`)
+- **macOS** (`.dmg`)
+- **Linux** (`.deb`, `.rpm`, `.AppImage`)
 
 `main` 브랜치에 푸시가 발생할 때마다 아티팩트가 생성되며, GitHub의 "Actions" 탭에서 다운로드할 수 있습니다.
 
 ## 기술 스택 (Technology Stack)
 
-- **Electron**: 크로스 플랫폼 데스크탑 프레임워크
+- **Tauri**: 가벼운 Rust 기반 크로스 플랫폼 데스크탑 프레임워크
 - **Vanilla JS**: 가벼운 코어 로직
 - **CSS3**: Modern Flexbox/Grid 레이아웃 및 CSS 변수 활용
 
@@ -71,9 +71,9 @@ ISC
 macOS에서 로컬로 빌드된 서명되지 않은 앱은 Gatekeeper에 의해 차단될 수 있습니다. 다음 명령어로 격리 속성을 제거하여 해결할 수 있습니다:
 
 ```bash
-xattr -cr out/sd-prompt-viewer-darwin-arm64/SD\ Prompt\ Viewer.app
+xattr -cr src-tauri/target/release/bundle/macos/Image\ Prompt\ Viewer.app
 # 또는
-xattr -cr /path/to/your/SD\ Prompt\ Viewer.app
+xattr -cr /path/to/your/Image\ Prompt\ Viewer.app
 ```
 
 ## 면책 조항 (Disclaimer)
