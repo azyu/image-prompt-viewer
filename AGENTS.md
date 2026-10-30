@@ -46,7 +46,7 @@ The project uses a lightweight Tauri v2 backend with a pure Vanilla JS frontend.
 ## Development & Usage
 
 ### Prerequisites
-*   Node.js and npm installed.
+*   Node.js 26 or later and npm installed.
 *   Rust toolchain (`rustc`, `cargo`) installed.
 
 ### Commands

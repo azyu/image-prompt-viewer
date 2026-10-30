@@ -3,6 +3,9 @@
   "productName": "Image Prompt Viewer",
   "version": "2.0.0",
   "description": "A refined Image Prompt Reader",
+  "engines": {
+    "node": ">=26"
+  },
   "scripts": {
     "prepare-assets": "node -e \"fs.copyFileSync('node_modules/exifreader/dist/exif-reader.js', 'src/exif-reader.js')\"",
     "start": "tauri dev",
