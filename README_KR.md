@@ -17,7 +17,7 @@ macOS, Windows, Linux를 위해 디자인된 다크 테마의 AI 이미지 프�
 
 ## 설치 방법 (Installation)
 
-[Node.js](https://nodejs.org/)와 [Rust](https://www.rust-lang.org/tools/install)가 설치되어 있어야 합니다.
+[Node.js](https://nodejs.org/) 26 이상과 [Rust](https://www.rust-lang.org/tools/install)가 설치되어 있어야 합니다.
 
 ```bash
 # 저장소 복제

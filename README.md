@@ -17,7 +17,7 @@ An AI Image Prompt & Metadata Reader (ComfyUI, Automatic1111) designed for macOS
 
 ## Installation
 
-Ensure you have [Node.js](https://nodejs.org/) and [Rust](https://www.rust-lang.org/tools/install) installed.
+Ensure you have [Node.js](https://nodejs.org/) 26 or later and [Rust](https://www.rust-lang.org/tools/install) installed.
 
 ```bash
 # Clone the repository
